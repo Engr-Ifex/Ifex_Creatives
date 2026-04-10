@@ -4,8 +4,8 @@ import Button from "../ui/Button";
 const Hero = () => {
   return (
     <section
-      id="hero"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-20 text-white"
+      id="home"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-2 text-white"
     >
       {/* Localized top glow (brighter + closer + moving slowly) */}
       <div className="pointer-events-none absolute left-1/2 top-0 h-52 w-[24rem] rounded-full bg-[#5CBF0D]/30 blur-[110px] animate-floatGlow" />

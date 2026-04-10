@@ -12,11 +12,11 @@ const Button = ({
   return (
     <button
       className={clsx(
-        "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-4xl px-6 py-3 text-sm font-semibold transition-all duration-300 sm:px-7 sm:py-4 sm:text-base",
+        "group relative inline-flex cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-4xl px-6 py-3 text-sm font-semibold transition-all duration-300 sm:px-7 sm:py-4 sm:text-base",
         variant === "primary" &&
-          "bg-[#5CBF0D] text-black shadow-[0_8px_30px_rgba(92,191,13,0.18)] hover:-translate-y-1 hover:shadow-[0_14px_40px_rgba(92,191,13,0.28)]",
+          "bg-[#5CBF0D] text-black cursor-pointer shadow-[0_8px_30px_rgba(92,191,13,0.18)] hover:-translate-y-1 hover:shadow-[0_14px_40px_rgba(92,191,13,0.28)]",
         variant === "secondary" &&
-          "border border-white/10 bg-white/[0.04] text-white backdrop-blur-xl hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.07]",
+          "border border-white/10 cursor-pointer bg-white/[0.04] text-white backdrop-blur-xl hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.07]",
         className
       )}
       {...props}

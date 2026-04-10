@@ -60,7 +60,7 @@ const TopActions = () => {
             {/* Theme toggle */}
             <button
               onClick={toggleTheme}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/30 text-white/80 backdrop-blur-xl transition hover:text-[#5CBF0D]"
+              className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-black/30 text-white/80 backdrop-blur-xl transition hover:text-[#5CBF0D]"
             >
               {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
             </button>
@@ -101,7 +101,7 @@ const TopActions = () => {
             {/* Theme toggle stays outside */}
             <button
               onClick={toggleTheme}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/30 text-white/80 backdrop-blur-xl transition hover:text-[#5CBF0D]"
+              className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-black/30 text-white/80 backdrop-blur-xl transition hover:text-[#5CBF0D]"
             >
               {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
             </button>
@@ -177,16 +177,17 @@ const TopActions = () => {
               >
                 Resume
               </a>
+            </div>
 
-              <a
+             <div className="flex py-5 space-x-6">
+                   <a
                 href="https://github.com/Engr-Ifex"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 text-base font-medium text-white/90 transition hover:border-[#5CBF0D]/40 hover:text-[#5CBF0D]"
+                className="flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/80 backdrop-blur-xl transition hover:text-[#5CBF0D]"
               >
                 <FiGithub size={18} />
-                GitHub
               </a>
 
               <a
@@ -194,12 +195,11 @@ const TopActions = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 text-base font-medium text-white/90 transition hover:border-[#5CBF0D]/40 hover:text-[#5CBF0D]"
+                className="flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/80 backdrop-blur-xl transition hover:text-[#5CBF0D]"
               >
                 <LiaLinkedin size={20} />
-                LinkedIn
               </a>
-            </div>
+             </div>
           </div>
         </div>
       </div>
