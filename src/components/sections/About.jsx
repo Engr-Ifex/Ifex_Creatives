@@ -18,7 +18,7 @@ const About = () => {
               <img
                 src={aboutImg}
                 alt="About me"
-                className="h-full w-full rounded-2xl object-cover"
+                className="h-full w-full rounded-2xl object-cover "
               />
             </div>
 
@@ -41,7 +41,7 @@ const About = () => {
 
           {/* Heading */}
           <FadeInSection delay={0.1}>
-            <h2 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
+            <h2 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-[34px]">
               Building Scalable Digital
               <br />
               <span className="text-white/60">
@@ -69,7 +69,7 @@ const About = () => {
               </div>
               <div className="flex items-center gap-3 text-sm text-white/80">
                 <Check size={16} className="text-[#5CBF0D]" />
-                Strong focus on UI/UX and performance
+                Strong focus on backend architecture and performance
               </div>
             </div>
           </FadeInSection>
