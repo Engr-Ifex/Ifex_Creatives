@@ -24,7 +24,7 @@ const About = () => {
 
             
            {/* strong bottom glow */}
-            <div className="pointer-events-none absolute -bottom-10 left-1/2 h-32 w-[420px] -translate-x-1/2 rounded-full bg-[#5CBF0D]/30 blur-[80px]" />
+            <div className="pointer-events-none absolute -bottom-10 left-1/2 w-[80%] max-w-[420px] -translate-x-1/2 h-32 rounded-full bg-[#5CBF0D]/30 blur-[80px]" />
           </div>
         </FadeInSection>
 

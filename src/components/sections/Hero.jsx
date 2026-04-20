@@ -30,7 +30,7 @@ const Hero = () => {
         <div className="relative inline-block">
           <h1 className="relative z-10 max-w-4xl text-4xl font-bold leading-[1.05] sm:text-6xl lg:text-6xl">
             I Build{" "}
-            <span className="bg-gradient-to-r from-[#8FD82A] via-[#D8F7A8] to-white bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(92,191,13,0.22)]">
+            <span className="bg-gradient-to-r from-[#8FD82A] via-[#D8F7A8] to-white bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
               Modern Websites
             </span>
             <br />
