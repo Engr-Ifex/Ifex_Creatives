@@ -6,7 +6,23 @@ import {
   Wrench,
   Palette,
 } from "lucide-react";
-import { FaReact, FaNodeJs, FaGitAlt } from "react-icons/fa";
+import { DiPhotoshop, DiIllustrator } from "react-icons/di";
+import {
+  SiTypescript,
+  SiTailwindcss,
+  SiExpress,
+  SiMongodb,
+  SiPostgresql,
+  SiFirebase,
+  SiSupabase,
+  SiVercel,
+  SiNetlify,
+  SiJavascript,
+  SiPostman,
+  SiReact,
+  SiNodedotjs,
+  SiGit
+} from "react-icons/si";
 
 export const skillsData = [
   {
@@ -14,9 +30,9 @@ export const skillsData = [
     icon: Layout,
     description: "Building responsive and modern UI with performance in mind.",
     skills: [
-      {  name: "React.js", icon: FaReact  },
-      { name: "TypeScript" },
-      { name: "Tailwind CSS" },
+      {  name: "React.js", icon:  SiReact },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
     ],
   },
   {
@@ -24,8 +40,8 @@ export const skillsData = [
     icon: Server,
     description: "Creating scalable APIs and server-side logic.",
     skills: [
-      { name: "Node.js", icon: FaNodeJs },
-      { name: "Express.js" },
+      { name: "Node.js", icon: SiNodedotjs },
+      { name: "Express.js", icon: SiExpress },
     ],
   },
   {
@@ -33,12 +49,12 @@ export const skillsData = [
     icon: Database,
     description: "Managing data and deploying modern applications.",
     skills: [
-      { name: "MongoDB" },
-      { name: "PostgreSQL" },
-      { name: "Firebase" },
-      { name: "Supabase" },
-      { name: "Vercel" },
-      { name: "Netlify" },
+      { name: "MongoDB", icon: SiMongodb },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "Firebase", icon: SiFirebase },
+      { name: "Supabase", icon:  SiSupabase },
+      { name: "Vercel", icon: SiVercel },
+      { name: "Netlify", icon: SiNetlify },
     ],
   },
   {
@@ -46,8 +62,8 @@ export const skillsData = [
     icon: Code,
     description: "Core languages used to build applications.",
     skills: [
-      { name: "JavaScript" },
-      { name: "TypeScript" },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "TypeScript", icon: SiTypescript },
     ],
   },
   {
@@ -55,8 +71,8 @@ export const skillsData = [
     icon: Wrench,
     description: "Tools that improve workflow and development efficiency.",
     skills: [
-      { name: "Git", icon: FaGitAlt },
-      { name: "Postman" },
+      { name: "Git", icon: SiGit},
+      { name: "Postman", icon: SiPostman },
     ],
   },
   {
@@ -64,8 +80,8 @@ export const skillsData = [
     icon: Palette,
     description: "Designing visually compelling and user-friendly graphics.",
     skills: [
-      { name: "Adobe Photoshop" },
-      { name: "Adobe Illustrator" },
+      { name: "Adobe Photoshop", icon: DiPhotoshop },
+      { name: "Adobe Illustrator", icon: DiIllustrator },
     ],
   },
 ];
