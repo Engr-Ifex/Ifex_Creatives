@@ -34,21 +34,36 @@ const Projects = () => {
               
               <div className="group relative cursor-pointer">
 
-                {/* IMAGE */}
-                <div className="relative overflow-hidden rounded-3xl border border-white/10">
+                {/* IMAGE CONTAINER */}
+                <div className="
+                  relative overflow-hidden rounded-3xl border border-white/10
+                  h-[340px]                 /* mobile */
+                  sm:h-auto sm:aspect-[16/10]  /* desktop */
+                ">
+
+                  {/* Image */}
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="h-[340px] w-full object-cover transition duration-500 group-hover:scale-105"
+                    className="
+                      h-full w-full object-cover
+                      transition duration-500
+                      group-hover:scale-105
+                    "
                   />
 
                   {/* Dark overlay */}
-                  <div className="absolute inset-0 bg-black/20 transition group-hover:bg-black/50" />
+                  <div className="
+                    absolute inset-0 bg-black/20
+                    transition duration-500
+                    group-hover:bg-black/50
+                  " />
 
-                  {/* CONTENT OVERLAY */}
+                  {/* Inner shadow */}
+                  <div className="absolute inset-0 rounded-3xl shadow-[inset_0_0_60px_rgba(0,0,0,0.4)] pointer-events-none" />
+
+                  {/* CONTENT */}
                   <div className="absolute bottom-0 left-0 right-0 p-4">
-                    {/* <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-6 opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"></div> */}
-
                     <div className="rounded-2xl border border-white/10 bg-black/70 backdrop-blur-xl p-4">
 
                       {/* Top row */}
@@ -62,7 +77,7 @@ const Projects = () => {
                             href={project.liveLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hover:text-[#5CBF0D]"
+                            className="hover:text-[#5CBF0D] transition"
                           >
                             <HiOutlineExternalLink size={18} />
                           </a>
@@ -71,7 +86,7 @@ const Projects = () => {
                             href={project.githubLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hover:text-[#5CBF0D]"
+                            className="hover:text-[#5CBF0D] transition"
                           >
                             <FiGithub size={18} />
                           </a>
@@ -88,7 +103,13 @@ const Projects = () => {
                         {project.technologies.map((tech, i) => (
                           <span
                             key={i}
-                            className="rounded-full border border-white/10 bg-white/5 px-2 py-1 text-[10px] text-white/70"
+                            className="
+                              rounded-full border border-white/10 bg-white/5
+                              px-2 py-1 text-[10px] text-white/70
+                              transition
+                              hover:border-[#5CBF0D]/40
+                              hover:text-[#5CBF0D]
+                            "
                           >
                             {tech}
                           </span>
@@ -99,8 +120,13 @@ const Projects = () => {
                   </div>
                 </div>
 
-                {/* Bottom glow (premium feel) */}
-                <div className="absolute -bottom-6 left-1/2 h-24 w-72 -translate-x-1/2 rounded-full bg-[#5CBF0D]/10 blur-3xl opacity-0 transition group-hover:opacity-100" />
+                {/* Bottom glow */}
+                <div className="
+                  absolute -bottom-6 left-1/2 h-24 w-72 -translate-x-1/2
+                  rounded-full bg-[#5CBF0D]/10 blur-3xl
+                  opacity-0 transition duration-500
+                  group-hover:opacity-100
+                " />
 
               </div>
 
