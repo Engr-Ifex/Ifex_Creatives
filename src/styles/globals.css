@@ -6,14 +6,20 @@
 @layer base {
   html {
     font-family: 'Outfit', sans-serif;
+    /* transition: background-color 0.4s ease, color 0.4s ease; */
   }
 }
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  /* transition: background-color 0.4s ease, color 0.4s ease; */
 }
 *{
- font-family: Inter, sans-serif; 
+  font-family: Inter, sans-serif; 
+  /* transition:  background-color 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease; */
 }
 
 body {
@@ -59,4 +65,13 @@ body {
 
 .animate-fadeIn {
   animation: fadeIn 0.4s ease forwards;
+}
+
+.theme-transition {
+  animation: themeFade 0.4s ease;
+}
+
+@keyframes themeFade {
+  from { opacity: 0.96; }
+  to { opacity: 1; }
 }
