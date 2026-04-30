@@ -1,57 +1,96 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+/* =========================
+   GOOGLE FONTS
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..700&display=swap');
+
+/* =========================
+   TAILWIND
+========================= */
 @import "tailwindcss";
+
+/* Custom light mode variant */
 @custom-variant light (&:where(.light, .light *));
 
 
+/* =========================
+   BASE STYLES
+========================= */
 @layer base {
   html {
-    font-family: 'Outfit', sans-serif;
-    /* transition: background-color 0.4s ease, color 0.4s ease; */
+    font-family: Inter, sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    margin: 0;
+    background: #050505;
+    color: white;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Headings use premium font */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
   }
 }
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-  /* transition: background-color 0.4s ease, color 0.4s ease; */
-}
-*{
-  font-family: Inter, sans-serif; 
-  /* transition:  background-color 0.4s ease,
-    color 0.4s ease,
-    border-color 0.4s ease,
-    box-shadow 0.4s ease; */
+
+
+/* =========================
+   LIGHT MODE
+========================= */
+html.light {
+  background: linear-gradient(to bottom, #f8fafc, #f1f5f9);
+  color: black;
 }
 
-body {
-  margin: 0;
-  font-family: Inter, sans-serif;
-  background: #050505;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html.light body {
+  background: transparent;
 }
 
+
+/* =========================
+   GLOBAL TRANSITIONS
+========================= */
+.theme-transition *,
+.theme-transition {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+/* Floating glow (smooth premium feel) */
 @keyframes floatGlow {
   0% {
-    transform: translate(-50%, -100px) scale(1);
-    opacity: 0.8;
+    transform: translate(-50%, -60px) scale(1);
+    opacity: 0.85;
   }
 
   50% {
-    transform: translate(-50%, 100px) scale(1.05);
+    transform: translate(-50%, 60px) scale(1.08);
     opacity: 1;
   }
 
   100% {
-    transform: translate(-50%, -100px) scale(1);
-    opacity: 0.8;
+    transform: translate(-50%, -60px) scale(1);
+    opacity: 0.85;
   }
 }
 
 .animate-floatGlow {
-  animation: floatGlow 7s ease-in-out infinite;
+  animation: floatGlow 8s ease-in-out infinite;
 }
 
+
+/* Fade in (used for sections) */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -67,6 +106,8 @@ body {
   animation: fadeIn 0.4s ease forwards;
 }
 
+
+/* Theme transition (used when toggling) */
 .theme-transition {
   animation: themeFade 0.4s ease;
 }

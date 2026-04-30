@@ -12,38 +12,41 @@ const navItems = [
 const SideNav = () => {
   const [activeSection, setActiveSection] = useState("home");
 
-  useEffect(() => {
-    const sections = navItems
-      .map((item) => document.getElementById(item.id))
-      .filter(Boolean);
+useEffect(() => {
+  const handleScroll = () => {
+    let current = "";
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleSections = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+    navItems.forEach((item) => {
+      const section = document.getElementById(item.id);
+      if (!section) return;
 
-        if (visibleSections.length > 0) {
-          setActiveSection(visibleSections[0].target.id);
-        }
-      },
-      {
-        root: null,
-        rootMargin: "-35% 0px -35% 0px",
-        threshold: [0.2, 0.4, 0.6, 0.8],
+      const rect = section.getBoundingClientRect();
+
+      const offset = window.innerHeight / 2;
+
+      if (rect.top <= offset && rect.bottom >= offset) {
+        current = item.id;
       }
-    );
+    });
 
-    sections.forEach((section) => observer.observe(section));
+    setActiveSection(current);
+  };
 
-    return () => {
-      sections.forEach((section) => observer.unobserve(section));
-    };
-  }, []);
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
 
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
   return (
     <div className="fixed left-4 top-1/2 z-50 hidden -translate-y-1/2 lg:flex">
-      <div className="flex flex-col gap-3 rounded-3xl border border-white/10 bg-black/30 p-3 backdrop-blur-xl shadow-[0_0_30px_rgba(0,0,0,0.3)]">
+      <div
+        className="
+        flex flex-col gap-3 rounded-3xl p-3 backdrop-blur-xl
+        border border-white/10 bg-black/30 shadow-[0_0_30px_rgba(0,0,0,0.3)]
+
+        light:bg-white/70 light:border-black/10 light:shadow-[0_0_20px_rgba(0,0,0,0.08)]
+        "
+      >
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeSection === item.id;
@@ -52,12 +55,26 @@ const SideNav = () => {
             <a
               key={item.label}
               href={item.href}
-              className={`group flex h-11 w-11 items-center justify-center rounded-2xl transition-all duration-300 ${
-                isActive
-                  ? "bg-[#5CBF0D] text-black shadow-[0_0_20px_rgba(92,191,13,0.35)]"
-                  : "bg-white/[0.03] text-white/70 hover:bg-[#5e5e5e] hover:text-black hover:shadow-[0_0_20px_rgba(92,191,13,0.25)]"
-              }`}
               title={item.label}
+              className={`
+                group flex h-11 w-11 items-center justify-center rounded-2xl
+                transition-all duration-300 ease-out
+
+                ${
+                  isActive
+                    ? `
+                      bg-[#5CBF0D] text-black 
+                      shadow-[0_0_20px_rgba(92,191,13,0.35)]
+                    `
+                    : `
+                      bg-white/[0.03] text-white/70
+                      hover:bg-[#5e5e5e] hover:text-black
+
+                      light:bg-black/[0.04] light:text-black/60
+                      light:hover:bg-[#5CBF0D]/15 light:hover:text-[#5CBF0D]
+                    `
+                }
+              `}
             >
               <Icon size={18} />
             </a>

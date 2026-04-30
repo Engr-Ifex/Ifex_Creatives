@@ -5,7 +5,7 @@ import TopActions from "./TopActions";
 
 const MainLayout = () => {
   return (
-    <div className="relative min-h-screen bg-[#050505] text-white">
+    <div className="relative min-h-screen bg-black text-white light:bg-white light:text-black">
       <SideNav />
       <TopActions />
 
