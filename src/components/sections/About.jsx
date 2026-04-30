@@ -79,9 +79,11 @@ const About = () => {
             <div className="mt-4 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
               
               {/* Button */}
-              <button className="rounded-full bg-[#5CBF0D] px-6 py-3 text-sm font-medium text-black transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(92,191,13,0.5)]">
-                View My Work
-              </button>
+              <a href="#projects">
+                <button className="rounded-full cursor-pointer bg-[#5CBF0D] px-6 py-3 text-sm font-medium text-black transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(92,191,13,0.5)]">
+                  View My Work
+                </button>
+              </a>
 
               {/* Social proof */}
               <div className="flex flex-col text-sm text-white/60">

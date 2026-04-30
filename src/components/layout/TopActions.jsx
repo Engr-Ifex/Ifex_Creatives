@@ -79,14 +79,19 @@ const TopActions = () => {
           <div className="hidden items-center gap-3 lg:flex">
             <button
               onClick={handleThemeToggle}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/30 text-white/80 backdrop-blur-xl transition hover:text-[#5CBF0D]"
+              className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-black/30 text-white/80 backdrop-blur-xl transition hover:text-[#5CBF0D]"
             >
               {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
             </button>
 
-            <a className="rounded-full border border-white/10 bg-black/30 px-5 py-3 text-sm text-white/90 backdrop-blur-xl transition hover:text-[#5CBF0D]">
-              Resume
-            </a>
+            <a
+            href="/RESUME.pdf"  
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-white/10 bg-black/30 px-5 py-3 text-sm text-white/90 backdrop-blur-xl transition hover:text-[#5CBF0D]"
+          >
+            Resume
+          </a>
 
             <a
               href="https://github.com/Engr-Ifex"
@@ -98,7 +103,7 @@ const TopActions = () => {
             </a>
 
             <a
-              href="https://www.linkedin.com/"
+              href="www.linkedin.com/in/ifeoluwapo-elijah-261674257"
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/30 text-white/80 transition hover:text-[#5CBF0D]"

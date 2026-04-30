@@ -47,8 +47,13 @@ const Hero = () => {
 
         {/* CTA buttons */}
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
+          <a href="#projects">
           <Button icon>View My Work</Button>
+          </a>
+
+          <a href="#contact">
           <Button variant="secondary">Let’s Talk</Button>
+          </a>
         </div>
       </div>
     </section>
