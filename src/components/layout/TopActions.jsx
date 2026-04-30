@@ -41,10 +41,37 @@ const TopActions = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => (document.body.style.overflow = "");
-  }, [menuOpen]);
+ useEffect(() => {
+  if (menuOpen) {
+    const scrollY = window.scrollY;
+
+    // Lock body
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+  } else {
+    const scrollY = document.body.style.top;
+
+    // Restore scroll
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+    document.body.style.width = "";
+
+    window.scrollTo(0, parseInt(scrollY || "0") * -1);
+  }
+
+  return () => {
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+    document.body.style.width = "";
+  };
+}, [menuOpen]);
 
   // ✅ THEME TOGGLE WITH LOADER
   const handleThemeToggle = () => {
@@ -103,7 +130,7 @@ const TopActions = () => {
             </a>
 
             <a
-              href="www.linkedin.com/in/ifeoluwapo-elijah-261674257"
+              href="https://www.linkedin.com/in/ifeoluwapo-elijah-261674257/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/30 text-white/80 transition hover:text-[#5CBF0D]"
@@ -133,33 +160,92 @@ const TopActions = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 z-[60] lg:hidden ${
-          menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
-      >
-        <div
-          onClick={() => setMenuOpen(false)}
-          className="absolute inset-0 bg-black/60 backdrop-blur-md"
-        />
-
-        <div
-          className={`absolute right-0 top-0 h-full w-[85%] max-w-sm bg-black/90 transition ${
-            menuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-        >
-          <div className="p-6 flex flex-col gap-6">
-            <button onClick={() => setMenuOpen(false)}>
-              <X />
-            </button>
-
-            {navItems.map((item) => (
-              <a key={item.label} href={item.href}>
-                {item.label}
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
+              className={`fixed inset-0 z-[60] lg:hidden transition-all duration-300 ${
+                menuOpen
+                  ? "pointer-events-auto opacity-100"
+                  : "pointer-events-none opacity-0"
+              }`}
+            >
+              {/* Backdrop */}
+              <div
+                onClick={() => setMenuOpen(false)}
+                className="absolute inset-0 bg-black/60 backdrop-blur-md"
+              />
+      
+              {/* Menu Panel */}
+              <div
+                className={`absolute top-0 right-0 h-full w-[85%] max-w-sm 
+                border-l border-white/10 bg-black/90 backdrop-blur-2xl 
+                transition-transform duration-500 ease-out
+                ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
+              >
+                <div className="flex h-full flex-col px-6 py-6">
+                  {/* Header */}
+                  <div className="mb-8 flex items-center justify-between">
+                    <img src={greenlogo} alt="logo" className="h-5 w-auto" />
+      
+                    <button
+                      onClick={() => setMenuOpen(false)}
+                      className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/80 transition hover:text-[#5CBF0D]"
+                    >
+                      <X size={18} />
+                    </button>
+                  </div>
+      
+                  {/* Nav Links */}
+                  <div className="flex flex-col gap-3">
+                    {navItems.map((item) => {
+                      const Icon = item.icon;
+                      return (
+                        <a
+                          key={item.label}
+                          href={item.href}
+                          onClick={() => setMenuOpen(false)}
+                          className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 text-base font-medium text-white/90 transition hover:border-[#5CBF0D]/40 hover:text-[#5CBF0D]"
+                        >
+                          <Icon size={18} />
+                          {item.label}
+                        </a>
+                      );
+                    })}
+                  </div>
+      
+                  {/* Bottom Actions */}
+                  <div className="mt-6 flex flex-col gap-4 border-t border-white/10 pt-6">
+                    <a
+                      href="/RESUME.pdf"
+                      target="_blank"
+                      onClick={() => setMenuOpen(false)}
+                      className="rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 text-base font-medium text-white/90 transition hover:border-[#5CBF0D]/40 hover:text-[#5CBF0D]"
+                    >
+                      Resume
+                    </a>
+                  </div>
+      
+                   <div className="flex py-5 space-x-6">
+                         <a
+                      href="https://github.com/Engr-Ifex"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setMenuOpen(false)}
+                      className="flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/80 backdrop-blur-xl transition hover:text-[#5CBF0D]"
+                    >
+                      <FiGithub size={18} />
+                    </a>
+      
+                    <a
+                      href="https://www.linkedin.com/in/ifeoluwapo-elijah-261674257/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setMenuOpen(false)}
+                      className="flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/80 backdrop-blur-xl transition hover:text-[#5CBF0D]"
+                    >
+                      <LiaLinkedin size={20} />
+                    </a>
+                   </div>
+                </div>
+              </div>
+            </div>
     </>
   );
 };
