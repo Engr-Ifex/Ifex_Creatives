@@ -60,18 +60,22 @@ const TopActions = () => {
 
   // Theme toggle with loader
   const handleThemeToggle = () => {
-    setLoading(true);
-    document.documentElement.classList.add("theme-transition");
+  setLoading(true);
+
+  document.documentElement.classList.add("theme-transition");
+
+  // FIRST: change theme
+  toggleTheme();
+
+  // THEN wait for DOM + styles to settle
+  setTimeout(() => {
+    setLoading(false);
 
     setTimeout(() => {
-      toggleTheme();
-      setLoading(false);
-
-      setTimeout(() => {
-        document.documentElement.classList.remove("theme-transition");
-      }, 400);
-    }, 600);
-  };
+      document.documentElement.classList.remove("theme-transition");
+    }, 400);
+  }, 3000);
+};
 
   return (
     <>
